@@ -30,7 +30,7 @@ namespace TrueLayer.Services.Pokemon
             var description = response.FlavorTextEntries.FirstOrDefault(e => e.Language?.Name?.ToLowerInvariant() == "en")?.FlavorText;
 
             // Would usually use AutoMapper for this
-            var dto = new PokemonDto(response.Name, description, response.Habitat, response.IsLegendary);
+            var dto = new PokemonDto(response.Name, description, response.Habitat?.Name, response.IsLegendary);
 
             return dto;
         }

@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TrueLayer.Services;
 
 namespace TrueLayer.Api
 {
@@ -32,11 +33,14 @@ namespace TrueLayer.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TrueLayer.Api", Version = "v1" });
             });
+            services.AddHttpClient();
+            services.AddMemoryCache();
+            services.AddLogging();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule(new ServicesDependencyModule());
+            builder.RegisterModule<ServicesDependencyModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

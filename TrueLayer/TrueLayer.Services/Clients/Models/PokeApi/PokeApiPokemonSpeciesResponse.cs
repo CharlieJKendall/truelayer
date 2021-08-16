@@ -11,7 +11,7 @@ namespace TrueLayer.Services.Clients.Models.PokeApi
         public FlavorTextEntry[] FlavorTextEntries { get; set; }
         
         [JsonPropertyName("habitat")]
-        public string Habitat { get; set; }
+        public Habitat Habitat { get; set; }
         
         [JsonPropertyName("is_legendary")]
         public bool? IsLegendary { get; set; }
