@@ -2,6 +2,7 @@ using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -36,6 +37,17 @@ namespace TrueLayer.Api
             services.AddHttpClient();
             services.AddMemoryCache();
             services.AddLogging();
+            services.AddApiVersioning(opt =>
+            {
+                opt.DefaultApiVersion = ApiVersion.Default;
+                opt.ReportApiVersions = true;
+                opt.AssumeDefaultVersionWhenUnspecified = true;
+            });
+            services.AddVersionedApiExplorer(o =>
+            {
+                o.GroupNameFormat = "'v'VVV";
+                o.SubstituteApiVersionInUrl = true;
+            });
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

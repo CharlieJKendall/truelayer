@@ -15,7 +15,7 @@ namespace TrueLayer.Services.Translation.Translators.Shakespeare
 
         public Task<string> Translate(string textToTranslate, CancellationToken cancellationToken = default)
         {
-            return _funTranslationsClient.Translate(FunTranslationsEndpoint.Yoda, textToTranslate, cancellationToken);
+            return _funTranslationsClient.Translate(FunTranslationsEndpoint.Shakespeare, textToTranslate, cancellationToken);
         }
     }
 }

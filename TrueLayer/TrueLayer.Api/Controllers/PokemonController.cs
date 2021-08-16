@@ -8,7 +8,8 @@ using TrueLayer.Services.Pokemon.Models;
 namespace TrueLayer.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     public class PokemonController : ControllerBase
     {
         private readonly IPokemonService _pokemonService;
