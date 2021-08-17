@@ -20,13 +20,13 @@ namespace TrueLayer.Api.Controllers
         }
 
         [HttpGet("{name}")]
-        public async Task<ActionResult<PokemonDto>> Get([FromRoute] string name, CancellationToken cancellationToken)
+        public async Task<ActionResult<PokemonDto>> Get([FromRoute] string name, CancellationToken cancellationToken = default)
         {
             return await HandleGetByName(name, _pokemonService.GetPokemon, cancellationToken);
         }
 
         [HttpGet("translated/{name}")]
-        public async Task<ActionResult<PokemonDto>> GetTranslated([FromRoute] string name, CancellationToken cancellationToken)
+        public async Task<ActionResult<PokemonDto>> GetTranslated([FromRoute] string name, CancellationToken cancellationToken = default)
         {
             return await HandleGetByName(name, _pokemonService.GetTranslatedPokemon, cancellationToken);
         }

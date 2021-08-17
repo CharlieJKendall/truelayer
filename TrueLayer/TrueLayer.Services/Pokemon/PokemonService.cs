@@ -20,6 +20,11 @@ namespace TrueLayer.Services.Pokemon
 
         public async Task<PokemonDto> GetPokemon(string name, CancellationToken cancellationToken = default)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return null;
+            }
+
             var response = await _pokeApiClient.GetPokemon(name, cancellationToken);
 
             if (response is null)
@@ -27,6 +32,7 @@ namespace TrueLayer.Services.Pokemon
                 return null;
             }
 
+            // Clarification required here regarding what to do when english is not available - take another language? throw? return null?
             var description = response.FlavorTextEntries?.FirstOrDefault(e => e.Language?.Name?.ToLowerInvariant() == "en")?.FlavorText;
 
             // Would usually use AutoMapper for this
