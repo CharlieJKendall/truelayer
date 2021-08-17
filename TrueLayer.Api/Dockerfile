@@ -7,6 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["TrueLayer.Api/TrueLayer.Api.csproj", "TrueLayer.Api/"]
+COPY ["TrueLayer.Services/TrueLayer.Services.csproj", "TrueLayer.Services/"]
 RUN dotnet restore "TrueLayer.Api/TrueLayer.Api.csproj"
 COPY . .
 WORKDIR "/src/TrueLayer.Api"
