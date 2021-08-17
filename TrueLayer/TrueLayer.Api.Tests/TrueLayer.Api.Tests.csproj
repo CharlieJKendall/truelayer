@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TrueLayer.Api.Clients\TrueLayer.Api.Clients.csproj" />
     <ProjectReference Include="..\TrueLayer.Api\TrueLayer.Api.csproj" />
   </ItemGroup>
   
